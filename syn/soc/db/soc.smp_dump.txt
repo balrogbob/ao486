@@ -1,0 +1,655 @@
+
+State Machine - |soc|system:u0|system_mm_interconnect_1:mm_interconnect_1|altera_merlin_burst_adapter:vga_mem_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter_13_1|altera_merlin_burst_adapter_full_13_1:altera_merlin_burst_adapter_full.the_ba_13_1|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |soc|system:u0|system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:sdram_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter_13_1|altera_merlin_burst_adapter_full_13_1:altera_merlin_burst_adapter_full.the_ba_13_1|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |soc|system:u0|driver_sd:driver_sd|card_write:card_write_inst|state
+Name state.S_FAILED_CMD12 state.S_CMD12 state.S_WAIT_FOR_DAT0 state.S_WAIT_FOR_DATA state.S_CMD25 state.S_IDLE 
+state.S_IDLE 0 0 0 0 0 0 
+state.S_CMD25 0 0 0 0 1 1 
+state.S_WAIT_FOR_DATA 0 0 0 1 0 1 
+state.S_WAIT_FOR_DAT0 0 0 1 0 0 1 
+state.S_CMD12 0 1 0 0 0 1 
+state.S_FAILED_CMD12 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|driver_sd:driver_sd|card_read:card_read_inst|state
+Name state.S_FAILED_CMD12 state.S_WAIT_FOR_DAT0 state.S_CMD12 state.S_WAIT_FOR_DATA state.S_CMD18 state.S_IDLE 
+state.S_IDLE 0 0 0 0 0 0 
+state.S_CMD18 0 0 0 0 1 1 
+state.S_WAIT_FOR_DATA 0 0 0 1 0 1 
+state.S_CMD12 0 0 1 0 0 1 
+state.S_WAIT_FOR_DAT0 0 1 0 0 0 1 
+state.S_FAILED_CMD12 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|driver_sd:driver_sd|card_init:card_init_inst|state
+Name state.S_ACMD6 state.S_CMD55_FOR_6 state.S_WAIT_DAT0 state.S_CMD7 state.S_CMD3 state.S_CMD2 state.S_ACMD41 state.S_CMD55_FOR_41 state.S_CMD8 state.S_CMD0 state.S_IDLE 
+state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 
+state.S_CMD0 0 0 0 0 0 0 0 0 0 1 1 
+state.S_CMD8 0 0 0 0 0 0 0 0 1 0 1 
+state.S_CMD55_FOR_41 0 0 0 0 0 0 0 1 0 0 1 
+state.S_ACMD41 0 0 0 0 0 0 1 0 0 0 1 
+state.S_CMD2 0 0 0 0 0 1 0 0 0 0 1 
+state.S_CMD3 0 0 0 0 1 0 0 0 0 0 1 
+state.S_CMD7 0 0 0 1 0 0 0 0 0 0 1 
+state.S_WAIT_DAT0 0 0 1 0 0 0 0 0 0 0 1 
+state.S_CMD55_FOR_6 0 1 0 0 0 0 0 0 0 0 1 
+state.S_ACMD6 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|ps2:ps2|mouse_state
+Name mouse_state.PS2_WAIT_FINISH mouse_state.PS2_WAIT mouse_state.PS2_WAIT_START mouse_state.PS2_RECV_WAIT_FOR_IDLE mouse_state.PS2_RECV_WAIT_FOR_STOP mouse_state.PS2_RECV_BITS mouse_state.PS2_RECV_START mouse_state.PS2_SEND_FINISHED mouse_state.PS2_SEND_WAIT_FOR_IDLE mouse_state.PS2_SEND_WAIT_FOR_ACK mouse_state.PS2_SEND_BITS mouse_state.PS2_SEND_CLOCK_RELEASE mouse_state.PS2_SEND_DATA_LOW mouse_state.PS2_SEND_INHIBIT_WAIT mouse_state.PS2_SEND_INHIBIT mouse_state.PS2_IDLE 
+mouse_state.PS2_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+mouse_state.PS2_SEND_INHIBIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+mouse_state.PS2_SEND_INHIBIT_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+mouse_state.PS2_SEND_DATA_LOW 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+mouse_state.PS2_SEND_CLOCK_RELEASE 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+mouse_state.PS2_SEND_BITS 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+mouse_state.PS2_SEND_WAIT_FOR_ACK 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+mouse_state.PS2_SEND_WAIT_FOR_IDLE 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+mouse_state.PS2_SEND_FINISHED 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+mouse_state.PS2_RECV_START 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+mouse_state.PS2_RECV_BITS 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+mouse_state.PS2_RECV_WAIT_FOR_STOP 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+mouse_state.PS2_RECV_WAIT_FOR_IDLE 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+mouse_state.PS2_WAIT_START 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+mouse_state.PS2_WAIT 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+mouse_state.PS2_WAIT_FINISH 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|ps2:ps2|keyb_state
+Name keyb_state.PS2_WAIT_FINISH keyb_state.PS2_WAIT keyb_state.PS2_WAIT_START keyb_state.PS2_RECV_WAIT_FOR_IDLE keyb_state.PS2_RECV_WAIT_FOR_STOP keyb_state.PS2_RECV_BITS keyb_state.PS2_RECV_START keyb_state.PS2_SEND_FINISHED keyb_state.PS2_SEND_WAIT_FOR_IDLE keyb_state.PS2_SEND_WAIT_FOR_ACK keyb_state.PS2_SEND_BITS keyb_state.PS2_SEND_CLOCK_RELEASE keyb_state.PS2_SEND_DATA_LOW keyb_state.PS2_SEND_INHIBIT_WAIT keyb_state.PS2_SEND_INHIBIT keyb_state.PS2_IDLE 
+keyb_state.PS2_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+keyb_state.PS2_SEND_INHIBIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+keyb_state.PS2_SEND_INHIBIT_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+keyb_state.PS2_SEND_DATA_LOW 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+keyb_state.PS2_SEND_CLOCK_RELEASE 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+keyb_state.PS2_SEND_BITS 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+keyb_state.PS2_SEND_WAIT_FOR_ACK 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+keyb_state.PS2_SEND_WAIT_FOR_IDLE 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+keyb_state.PS2_SEND_FINISHED 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+keyb_state.PS2_RECV_START 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+keyb_state.PS2_RECV_BITS 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+keyb_state.PS2_RECV_WAIT_FOR_STOP 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+keyb_state.PS2_RECV_WAIT_FOR_IDLE 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+keyb_state.PS2_WAIT_START 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+keyb_state.PS2_WAIT 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+keyb_state.PS2_WAIT_FINISH 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|driver_sound:driver_sound|i2c_state
+Name i2c_state.S_END_1 i2c_state.S_END_0 i2c_state.S_SEND_4 i2c_state.S_SEND_3 i2c_state.S_SEND_2 i2c_state.S_SEND_1 i2c_state.S_SEND_0 i2c_state.S_IDLE i2c_state.S_END_2 
+i2c_state.S_IDLE 0 0 0 0 0 0 0 0 0 
+i2c_state.S_SEND_0 0 0 0 0 0 0 1 1 0 
+i2c_state.S_SEND_1 0 0 0 0 0 1 0 1 0 
+i2c_state.S_SEND_2 0 0 0 0 1 0 0 1 0 
+i2c_state.S_SEND_3 0 0 0 1 0 0 0 1 0 
+i2c_state.S_SEND_4 0 0 1 0 0 0 0 1 0 
+i2c_state.S_END_0 0 1 0 0 0 0 0 1 0 
+i2c_state.S_END_1 1 0 0 0 0 0 0 1 0 
+i2c_state.S_END_2 0 0 0 0 0 0 0 1 1 
+
+State Machine - |soc|system:u0|driver_sound:driver_sound|control_state
+Name control_state.CTRL_READY control_state.CTRL_ACTIVATE control_state.CTRL_SAMPLING control_state.CTRL_FORMAT control_state.CTRL_EMPH control_state.CTRL_SIDE control_state.CTRL_OUTPUT control_state.CTRL_POWER control_state.CTRL_RESET control_state.CTRL_IDLE 
+control_state.CTRL_IDLE 0 0 0 0 0 0 0 0 0 0 
+control_state.CTRL_RESET 0 0 0 0 0 0 0 0 1 1 
+control_state.CTRL_POWER 0 0 0 0 0 0 0 1 0 1 
+control_state.CTRL_OUTPUT 0 0 0 0 0 0 1 0 0 1 
+control_state.CTRL_SIDE 0 0 0 0 0 1 0 0 0 1 
+control_state.CTRL_EMPH 0 0 0 0 1 0 0 0 0 1 
+control_state.CTRL_FORMAT 0 0 0 1 0 0 0 0 0 1 
+control_state.CTRL_SAMPLING 0 0 1 0 0 0 0 0 0 1 
+control_state.CTRL_ACTIVATE 0 1 0 0 0 0 0 0 0 1 
+control_state.CTRL_READY 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|pc_dma:pc_dma|dma_soundblaster_state
+Name dma_soundblaster_state.111 dma_soundblaster_state.110 dma_soundblaster_state.101 dma_soundblaster_state.100 dma_soundblaster_state.011 dma_soundblaster_state.010 dma_soundblaster_state.001 dma_soundblaster_state.000 
+dma_soundblaster_state.000 0 0 0 0 0 0 0 0 
+dma_soundblaster_state.001 0 0 0 0 0 0 1 1 
+dma_soundblaster_state.010 0 0 0 0 0 1 0 1 
+dma_soundblaster_state.011 0 0 0 0 1 0 0 1 
+dma_soundblaster_state.100 0 0 0 1 0 0 0 1 
+dma_soundblaster_state.101 0 0 1 0 0 0 0 1 
+dma_soundblaster_state.110 0 1 0 0 0 0 0 1 
+dma_soundblaster_state.111 1 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|pc_dma:pc_dma|dma_floppy_state
+Name dma_floppy_state.111 dma_floppy_state.110 dma_floppy_state.101 dma_floppy_state.100 dma_floppy_state.011 dma_floppy_state.010 dma_floppy_state.001 dma_floppy_state.000 
+dma_floppy_state.000 0 0 0 0 0 0 0 0 
+dma_floppy_state.001 0 0 0 0 0 0 1 1 
+dma_floppy_state.010 0 0 0 0 0 1 0 1 
+dma_floppy_state.011 0 0 0 0 1 0 0 1 
+dma_floppy_state.100 0 0 0 1 0 0 0 1 
+dma_floppy_state.101 0 0 1 0 0 0 0 1 
+dma_floppy_state.110 0 1 0 0 0 0 0 1 
+dma_floppy_state.111 1 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|floppy:floppy|state
+Name state.S_WAIT_FOR_FORMAT_INPUT state.S_SD_WRITE_WAIT_FOR_EMPTY_FIFO state.S_WAIT_FOR_FULL_WRITE_FIFO state.S_WAIT state.S_CHECK_TC state.S_UPDATE_SECTOR state.S_WAIT_FOR_EMPTY_READ_FIFO state.S_SD_READ_WAIT_FOR_DATA state.S_SD_CONTROL state.S_SD_BLOCK_COUNT state.S_SD_ADDRESS state.S_SD_AVALON_BASE state.S_SD_MUTEX state.S_COUNT_LOGICAL state.S_PREPARE_COUNT state.S_IDLE state.S_SD_FORMAT_WAIT_FOR_FILL 
+state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.S_PREPARE_COUNT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 
+state.S_COUNT_LOGICAL 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 
+state.S_SD_MUTEX 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 
+state.S_SD_AVALON_BASE 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 
+state.S_SD_ADDRESS 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 
+state.S_SD_BLOCK_COUNT 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 
+state.S_SD_CONTROL 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 
+state.S_SD_READ_WAIT_FOR_DATA 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 
+state.S_WAIT_FOR_EMPTY_READ_FIFO 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 
+state.S_UPDATE_SECTOR 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 
+state.S_CHECK_TC 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 
+state.S_WAIT 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.S_WAIT_FOR_FULL_WRITE_FIFO 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.S_SD_WRITE_WAIT_FOR_EMPTY_FIFO 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.S_WAIT_FOR_FORMAT_INPUT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+state.S_SD_FORMAT_WAIT_FOR_FILL 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+
+State Machine - |soc|system:u0|floppy:floppy|command_size
+Name command_size.0011 command_size.0010 command_size.0001 command_size.0000 command_size.1000 command_size.0101 
+command_size.0000 0 0 0 0 0 0 
+command_size.0001 0 0 1 1 0 0 
+command_size.0010 0 1 0 1 0 0 
+command_size.0011 1 0 0 1 0 0 
+command_size.0101 0 0 0 1 0 1 
+command_size.1000 0 0 0 1 1 0 
+
+State Machine - |soc|system:u0|hdd:hdd|state
+Name state.S_IDENTIFY_FILL state.S_SD_WRITE_WAIT_FOR_DATA state.S_WAIT_FOR_FULL_WRITE_FIFO state.S_WAIT_FOR_EMPTY_READ_FIFO state.S_SD_READ_WAIT_FOR_DATA state.S_SD_CONTROL state.S_SD_BLOCK_COUNT state.S_SD_ADDRESS state.S_SD_AVALON_BASE state.S_SD_MUTEX state.S_COUNT_DECISION state.S_COUNT_FINAL state.S_COUNT_LOGICAL state.S_PREPARE_COUNT state.S_IDLE 
+state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.S_PREPARE_COUNT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.S_COUNT_LOGICAL 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.S_COUNT_FINAL 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.S_COUNT_DECISION 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.S_SD_MUTEX 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.S_SD_AVALON_BASE 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.S_SD_ADDRESS 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.S_SD_BLOCK_COUNT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.S_SD_CONTROL 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.S_SD_READ_WAIT_FOR_DATA 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.S_WAIT_FOR_EMPTY_READ_FIFO 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.S_WAIT_FOR_FULL_WRITE_FIFO 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_SD_WRITE_WAIT_FOR_DATA 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_IDENTIFY_FILL 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|pic:pic|mas_init_byte_expected
+Name mas_init_byte_expected.010 mas_init_byte_expected.000 mas_init_byte_expected.100 mas_init_byte_expected.011 
+mas_init_byte_expected.000 0 0 0 0 
+mas_init_byte_expected.010 1 1 0 0 
+mas_init_byte_expected.011 0 1 0 1 
+mas_init_byte_expected.100 0 1 1 0 
+
+State Machine - |soc|system:u0|pic:pic|sla_init_byte_expected
+Name sla_init_byte_expected.010 sla_init_byte_expected.000 sla_init_byte_expected.100 sla_init_byte_expected.011 
+sla_init_byte_expected.000 0 0 0 0 
+sla_init_byte_expected.010 1 1 0 0 
+sla_init_byte_expected.011 0 1 0 1 
+sla_init_byte_expected.100 0 1 1 0 
+
+State Machine - |soc|system:u0|rtc:rtc|sec_state
+Name sec_state.SEC_SECOND_IN_PROGRESS sec_state.SEC_SECOND_START sec_state.SEC_UPDATE_IN_PROGRESS sec_state.SEC_UPDATE_START sec_state.SEC_STOPPED 
+sec_state.SEC_UPDATE_START 0 0 0 0 0 
+sec_state.SEC_UPDATE_IN_PROGRESS 0 0 1 1 0 
+sec_state.SEC_SECOND_START 0 1 0 1 0 
+sec_state.SEC_SECOND_IN_PROGRESS 1 0 0 1 0 
+sec_state.SEC_STOPPED 0 0 0 1 1 
+
+State Machine - |soc|system:u0|sound:sound|state
+Name state.STATE_WRITE state.STATE_LOAD_2 state.STATE_LOAD_1 state.STATE_IDLE 
+state.STATE_IDLE 0 0 0 0 
+state.STATE_LOAD_1 0 0 1 1 
+state.STATE_LOAD_2 0 1 0 1 
+state.STATE_WRITE 1 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_8_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_8_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_8_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_8_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_7_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_7_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_7_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_7_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_6_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_6_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_6_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_6_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_5_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_5_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_5_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_5_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_4_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_4_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_4_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_4_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_3_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_3_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_3_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_3_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_2_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_2_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_2_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_2_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_1_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_1_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_1_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_1_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_0_inst|sound_opl2_operator:op2_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_0_inst|sound_opl2_operator:op2_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_0_inst|sound_opl2_operator:op1_inst|state
+Name state.S_RELEASE state.S_SUSTAIN_NOKEEP state.S_SUSTAIN state.S_DECAY state.S_ATTACK state.S_OFF 
+state.S_OFF 0 0 0 0 0 0 
+state.S_ATTACK 0 0 0 0 1 1 
+state.S_DECAY 0 0 0 1 0 1 
+state.S_SUSTAIN 0 0 1 0 0 1 
+state.S_SUSTAIN_NOKEEP 0 1 0 0 0 1 
+state.S_RELEASE 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_opl2:sound_opl2_inst|sound_opl2_channel:channel_0_inst|sound_opl2_operator:op1_inst|active_on_next_sample
+Name active_on_next_sample.ACTIVE_IDLE active_on_next_sample.ACTIVE_TO_ATTACK active_on_next_sample.ACTIVE_TO_RELEASE 
+active_on_next_sample.ACTIVE_IDLE 0 0 0 
+active_on_next_sample.ACTIVE_TO_RELEASE 1 0 1 
+active_on_next_sample.ACTIVE_TO_ATTACK 1 1 0 
+
+State Machine - |soc|system:u0|sound:sound|sound_dsp:sound_dsp_inst|adpcm_type
+Name adpcm_type.ADPCM_2BIT adpcm_type.ADPCM_3BIT adpcm_type.ADPCM_4BIT adpcm_type.ADPCM_NONE 
+adpcm_type.ADPCM_NONE 0 0 0 0 
+adpcm_type.ADPCM_4BIT 0 0 1 1 
+adpcm_type.ADPCM_3BIT 0 1 0 1 
+adpcm_type.ADPCM_2BIT 1 0 0 1 
+
+State Machine - |soc|system:u0|sound:sound|sound_dsp:sound_dsp_inst|dma_command
+Name dma_command.S_IN_AUTO_HIGH dma_command.S_IN_SINGLE_HIGH dma_command.S_OUT_AUTO_HIGH dma_command.S_OUT_SINGLE_HIGH dma_command.S_IN_AUTO dma_command.S_IN_SINGLE dma_command.S_OUT_AUTO_2_BIT_REF dma_command.S_OUT_AUTO_3_BIT_REF dma_command.S_OUT_AUTO_4_BIT_REF dma_command.S_OUT_AUTO_8_BIT dma_command.S_OUT_SINGLE_2_BIT_REF dma_command.S_OUT_SINGLE_3_BIT_REF dma_command.S_OUT_SINGLE_4_BIT_REF dma_command.S_OUT_SINGLE_2_BIT dma_command.S_OUT_SINGLE_3_BIT dma_command.S_OUT_SINGLE_4_BIT dma_command.S_OUT_SINGLE_8_BIT dma_command.S_IDLE 
+dma_command.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+dma_command.S_OUT_SINGLE_8_BIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+dma_command.S_OUT_SINGLE_4_BIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+dma_command.S_OUT_SINGLE_3_BIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+dma_command.S_OUT_SINGLE_2_BIT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+dma_command.S_OUT_SINGLE_4_BIT_REF 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+dma_command.S_OUT_SINGLE_3_BIT_REF 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+dma_command.S_OUT_SINGLE_2_BIT_REF 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+dma_command.S_OUT_AUTO_8_BIT 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+dma_command.S_OUT_AUTO_4_BIT_REF 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+dma_command.S_OUT_AUTO_3_BIT_REF 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+dma_command.S_OUT_AUTO_2_BIT_REF 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+dma_command.S_IN_SINGLE 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+dma_command.S_IN_AUTO 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dma_command.S_OUT_SINGLE_HIGH 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dma_command.S_OUT_AUTO_HIGH 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dma_command.S_IN_SINGLE_HIGH 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+dma_command.S_IN_AUTO_HIGH 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|system_sdram:sdram|m_next
+Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
+m_next.000000001 0 0 0 0 
+m_next.000001000 0 0 1 1 
+m_next.000010000 0 1 0 1 
+m_next.010000000 1 0 0 1 
+
+State Machine - |soc|system:u0|system_sdram:sdram|m_state
+Name m_state.100000000 m_state.010000000 m_state.001000000 m_state.000100000 m_state.000010000 m_state.000001000 m_state.000000100 m_state.000000010 m_state.000000001 
+m_state.000000001 0 0 0 0 0 0 0 0 0 
+m_state.000000010 0 0 0 0 0 0 0 1 1 
+m_state.000000100 0 0 0 0 0 0 1 0 1 
+m_state.000001000 0 0 0 0 0 1 0 0 1 
+m_state.000010000 0 0 0 0 1 0 0 0 1 
+m_state.000100000 0 0 0 1 0 0 0 0 1 
+m_state.001000000 0 0 1 0 0 0 0 0 1 
+m_state.010000000 0 1 0 0 0 0 0 0 1 
+m_state.100000000 1 0 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|system_sdram:sdram|i_next
+Name i_next.111 i_next.101 i_next.010 i_next.000 
+i_next.000 0 0 0 0 
+i_next.010 0 0 1 1 
+i_next.101 0 1 0 1 
+i_next.111 1 0 0 1 
+
+State Machine - |soc|system:u0|system_sdram:sdram|i_state
+Name i_state.111 i_state.101 i_state.011 i_state.010 i_state.001 i_state.000 
+i_state.000 0 0 0 0 0 0 
+i_state.001 0 0 0 0 1 1 
+i_state.010 0 0 0 1 0 1 
+i_state.011 0 0 1 0 0 1 
+i_state.101 0 1 0 0 0 1 
+i_state.111 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|system_nios2:nios2|system_nios2_nios2_oci:the_system_nios2_nios2_oci|system_nios2_jtag_debug_module_wrapper:the_system_nios2_jtag_debug_module_wrapper|system_nios2_jtag_debug_module_tck:the_system_nios2_jtag_debug_module_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
+
+State Machine - |soc|system:u0|ao486:ao486|pipeline:pipeline_inst|decode:decode_inst|decode_prefix:decode_prefix_inst|prefix_group_2
+Name prefix_group_2.000 prefix_group_2.101 prefix_group_2.100 prefix_group_2.011 prefix_group_2.010 prefix_group_2.001 prefix_group_2.111 
+prefix_group_2.111 0 0 0 0 0 0 0 
+prefix_group_2.001 0 0 0 0 0 1 1 
+prefix_group_2.010 0 0 0 0 1 0 1 
+prefix_group_2.011 0 0 0 1 0 0 1 
+prefix_group_2.100 0 0 1 0 0 0 1 
+prefix_group_2.101 0 1 0 0 0 0 1 
+prefix_group_2.000 1 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|tlb:tlb_inst|write_double_state
+Name write_double_state.WRITE_DOUBLE_NONE write_double_state.WRITE_DOUBLE_RESTART write_double_state.WRITE_DOUBLE_CHECK 
+write_double_state.WRITE_DOUBLE_NONE 0 0 0 
+write_double_state.WRITE_DOUBLE_CHECK 1 0 1 
+write_double_state.WRITE_DOUBLE_RESTART 1 1 0 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|tlb:tlb_inst|state
+Name state.STATE_RETRY state.STATE_READ_WAIT state.STATE_READ_WAIT_START state.STATE_READ_CHECK state.STATE_WRITE_DOUBLE state.STATE_WRITE_WAIT state.STATE_WRITE_WAIT_START state.STATE_WRITE_CHECK state.STATE_CHECK_CHECK state.STATE_SAVE_PTE state.STATE_SAVE_PTE_START state.STATE_SAVE_PDE state.STATE_LOAD_PTE_END state.STATE_LOAD_PTE state.STATE_LOAD_PTE_START state.STATE_LOAD_PDE state.STATE_CODE_CHECK state.STATE_IDLE 
+state.STATE_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.STATE_CODE_CHECK 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.STATE_LOAD_PDE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.STATE_LOAD_PTE_START 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.STATE_LOAD_PTE 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.STATE_LOAD_PTE_END 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.STATE_SAVE_PDE 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.STATE_SAVE_PTE_START 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.STATE_SAVE_PTE 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.STATE_CHECK_CHECK 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.STATE_WRITE_CHECK 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.STATE_WRITE_WAIT_START 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.STATE_WRITE_WAIT 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.STATE_WRITE_DOUBLE 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.STATE_READ_CHECK 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.STATE_READ_WAIT_START 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.STATE_READ_WAIT 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.STATE_RETRY 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|tlb:tlb_inst|current_type
+Name current_type.TYPE_READ current_type.TYPE_WRITE current_type.TYPE_CHECK current_type.TYPE_CODE 
+current_type.TYPE_CODE 0 0 0 0 
+current_type.TYPE_CHECK 0 0 1 1 
+current_type.TYPE_WRITE 0 1 0 1 
+current_type.TYPE_READ 1 0 0 1 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|prefetch_control:prefetch_control_inst|state
+Name state.STATE_ICACHE 
+state.STATE_TLB_REQUEST 0 
+state.STATE_ICACHE 1 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|memory_write:memory_write_inst|state
+Name state.STATE_IDLE state.STATE_SECOND state.STATE_FIRST_WAIT 
+state.STATE_IDLE 0 0 0 
+state.STATE_FIRST_WAIT 1 0 1 
+state.STATE_SECOND 1 1 0 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|memory_read:memory_read_inst|state
+Name state.STATE_IDLE state.STATE_SECOND state.STATE_FIRST_WAIT 
+state.STATE_IDLE 0 0 0 
+state.STATE_FIRST_WAIT 1 0 1 
+state.STATE_SECOND 1 1 0 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|icache:icache_inst|state
+Name state.STATE_READ state.STATE_CHECK state.STATE_INVALIDATE_WRITE state.STATE_IDLE 
+state.STATE_IDLE 0 0 0 0 
+state.STATE_INVALIDATE_WRITE 0 0 1 1 
+state.STATE_CHECK 0 1 0 1 
+state.STATE_READ 1 0 0 1 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|dcache:dcache_inst|state
+Name state.STATE_WRITE_THROUGH state.STATE_WRITE_CHECK state.STATE_READ_LINE state.STATE_WRITE_BACK state.STATE_READ_BURST state.STATE_READ_CHECK state.STATE_IDLE 
+state.STATE_IDLE 0 0 0 0 0 0 0 
+state.STATE_READ_CHECK 0 0 0 0 0 1 1 
+state.STATE_READ_BURST 0 0 0 0 1 0 1 
+state.STATE_WRITE_BACK 0 0 0 1 0 0 1 
+state.STATE_READ_LINE 0 0 1 0 0 0 1 
+state.STATE_WRITE_CHECK 0 1 0 0 0 0 1 
+state.STATE_WRITE_THROUGH 1 0 0 0 0 0 1 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|dcache:dcache_inst|dcache_control_ram:dcache_control_ram_inst|state
+Name state.STATE_IDLE state.STATE_WBINVD state.STATE_INVD 
+state.STATE_IDLE 0 0 0 
+state.STATE_INVD 1 0 1 
+state.STATE_WBINVD 1 1 0 
+
+State Machine - |soc|system:u0|ao486:ao486|memory:memory_inst|avalon_mem:avalon_mem_inst|state
+Name state.STATE_READ_CODE state.STATE_READ state.STATE_WRITE state.STATE_IDLE 
+state.STATE_IDLE 0 0 0 0 
+state.STATE_WRITE 0 0 1 1 
+state.STATE_READ 0 1 0 1 
+state.STATE_READ_CODE 1 0 0 1 
+
+State Machine - |soc|system:u0|ao486:ao486|avalon_io:avalon_io_inst|state
+Name state.STATE_READ_1 state.STATE_WRITE_2 state.STATE_WRITE_1 state.STATE_IDLE state.STATE_READ_2 
+state.STATE_IDLE 0 0 0 0 0 
+state.STATE_WRITE_1 0 0 1 1 0 
+state.STATE_WRITE_2 0 1 0 1 0 
+state.STATE_READ_1 1 0 0 1 0 
+state.STATE_READ_2 0 0 0 1 1 
+
+State Machine - |soc|system:u0|ao486:ao486|exception:exception_inst|last_type
+Name last_type.11 last_type.10 last_type.01 last_type.00 
+last_type.00 0 0 0 0 
+last_type.01 0 0 1 1 
+last_type.10 0 1 0 1 
+last_type.11 1 0 0 1 

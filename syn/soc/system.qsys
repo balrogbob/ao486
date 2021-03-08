@@ -129,22 +129,6 @@
          type = "boolean";
       }
    }
-   element pit.io
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-   }
-   element floppy.io
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-   }
    element rtc.io
    {
       datum _lockedAddress
@@ -169,6 +153,22 @@
       {
          value = "96";
          type = "String";
+      }
+   }
+   element floppy.io
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element pit.io
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
       }
    }
    element jtag_uart
@@ -343,7 +343,7 @@
          type = "String";
       }
    }
-   element floppy.sd_slave
+   element hdd.sd_slave
    {
       datum _lockedAddress
       {
@@ -351,7 +351,7 @@
          type = "boolean";
       }
    }
-   element hdd.sd_slave
+   element floppy.sd_slave
    {
       datum _lockedAddress
       {
@@ -367,6 +367,14 @@
          type = "int";
       }
    }
+   element pic.slave
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
    element pc_dma.slave
    {
       datum _lockedAddress
@@ -378,14 +386,6 @@
       {
          value = "0";
          type = "String";
-      }
-   }
-   element pic.slave
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
       }
    }
    element sound
@@ -521,13 +521,13 @@
    type="conduit"
    dir="end" />
  <module kind="clock_source" version="14.0" enabled="1" name="clk_sys">
-  <parameter name="clockFrequency" value="30000000" />
+  <parameter name="clockFrequency" value="60000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
  <module kind="ao486" version="1.0" enabled="1" name="ao486">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="altera_nios2_qsys" version="14.0" enabled="1" name="nios2">
   <parameter name="setting_showUnpublishedSettings" value="false" />
@@ -642,7 +642,7 @@
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='nios2.jtag_debug_module' start='0x9800' end='0xA000' /><slave name='onchip_for_nios2.s1' start='0x10000' end='0x18000' /></address-map>]]></parameter>
   <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='driver_sd.avalon_slave_0' start='0x0' end='0x10' /><slave name='floppy.mgmt' start='0x8800' end='0x8840' /><slave name='hdd.mgmt' start='0x8840' end='0x8860' /><slave name='pio_output.s1' start='0x8860' end='0x8870' /><slave name='pit.mgmt' start='0x8880' end='0x8888' /><slave name='jtag_uart.avalon_jtag_slave' start='0x8888' end='0x8890' /><slave name='pio_input.s1' start='0x8890' end='0x88A0' /><slave name='pc_bus.ctrl' start='0x88A0' end='0x88B0' /><slave name='rtc.mgmt' start='0x8C00' end='0x9000' /><slave name='sound.mgmt' start='0x9000' end='0x9800' /><slave name='nios2.jtag_debug_module' start='0x9800' end='0xA000' /><slave name='vga.sys' start='0xA000' end='0xA400' /><slave name='onchip_for_nios2.s1' start='0x10000' end='0x18000' /><slave name='sdram.s1' start='0x8000000' end='0x10000000' /></address-map>]]></parameter>
-  <parameter name="clockFrequency" value="30000000" />
+  <parameter name="clockFrequency" value="60000000" />
   <parameter name="deviceFamilyName" value="Cyclone IV E" />
   <parameter name="internalIrqMaskSystemInfo" value="1" />
   <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
@@ -703,7 +703,7 @@
   <parameter name="avalonSpec" value="2.0" />
  </module>
  <module kind="pc_bus" version="1.0" enabled="1" name="pc_bus">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="vga" version="1.0" enabled="1" name="vga">
   <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="26000000" />
@@ -740,11 +740,11 @@
   <parameter name="TMRD" value="3" />
   <parameter name="initNOPDelay" value="0.0" />
   <parameter name="registerDataIn" value="true" />
-  <parameter name="clockRate" value="30000000" />
+  <parameter name="clockRate" value="60000000" />
   <parameter name="componentName" value="$${FILENAME}_sdram" />
  </module>
  <module kind="sound" version="1.0" enabled="1" name="sound">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="clock_source" version="14.0" enabled="1" name="clk_sound">
   <parameter name="clockFrequency" value="12000000" />
@@ -753,23 +753,23 @@
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
  <module kind="rtc" version="1.0" enabled="1" name="rtc">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="pit" version="1.0" enabled="1" name="pit">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="pic" version="1.0" enabled="1" name="pic">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
   <parameter name="AUTO_INTERRUPT_RECEIVER_INTERRUPTS_USED" value="20835" />
  </module>
  <module kind="hdd" version="1.0" enabled="1" name="hdd">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="floppy" version="1.0" enabled="1" name="floppy">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="pc_dma" version="1.0" enabled="1" name="pc_dma">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="altera_avalon_pio" version="14.0" enabled="1" name="pio_input">
   <parameter name="bitClearingEdgeCapReg" value="false" />
@@ -783,7 +783,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
-  <parameter name="clockRate" value="30000000" />
+  <parameter name="clockRate" value="60000000" />
  </module>
  <module
    kind="altera_reset_controller"
@@ -814,7 +814,7 @@
   <parameter name="USE_RESET_REQUEST_IN14" value="0" />
   <parameter name="USE_RESET_REQUEST_IN15" value="0" />
   <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
-  <parameter name="AUTO_CLK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="altera_avalon_pio" version="14.0" enabled="1" name="pio_output">
   <parameter name="bitClearingEdgeCapReg" value="false" />
@@ -828,7 +828,7 @@
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="8" />
-  <parameter name="clockRate" value="30000000" />
+  <parameter name="clockRate" value="60000000" />
  </module>
  <module
    kind="altera_reset_controller"
@@ -859,16 +859,16 @@
   <parameter name="USE_RESET_REQUEST_IN14" value="0" />
   <parameter name="USE_RESET_REQUEST_IN15" value="0" />
   <parameter name="USE_RESET_REQUEST_INPUT" value="0" />
-  <parameter name="AUTO_CLK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="driver_sound" version="1.0" enabled="1" name="driver_sound">
   <parameter name="AUTO_CLOCK_SOUND_CLOCK_RATE" value="12000000" />
  </module>
  <module kind="ps2" version="1.0" enabled="1" name="ps2">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <module kind="driver_sd" version="2.0" enabled="1" name="driver_sd">
-  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="30000000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="60000000" />
  </module>
  <connection kind="clock" version="14.0" start="clk_sys.clk" end="ao486.clock" />
  <connection

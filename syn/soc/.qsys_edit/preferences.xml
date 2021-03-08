@@ -11,9 +11,9 @@
  </systemtable>
  <clocktable>
   <columns>
-   <clockname preferredWidth="520" />
-   <clocksource preferredWidth="519" />
-   <frequency preferredWidth="502" />
+   <clockname preferredWidth="469" />
+   <clocksource preferredWidth="468" />
+   <frequency preferredWidth="452" />
   </columns>
  </clocktable>
  <library expandedCategories="Project,Library" />

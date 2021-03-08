@@ -1,0 +1,44 @@
+	system u0 (
+		.clk_sys_clk                    (<connected-to-clk_sys_clk>),                    //             clk_sys.clk
+		.reset_sys_reset_n              (<connected-to-reset_sys_reset_n>),              //           reset_sys.reset_n
+		.clk_vga_clk                    (<connected-to-clk_vga_clk>),                    //             clk_vga.clk
+		.reset_vga_reset_n              (<connected-to-reset_vga_reset_n>),              //           reset_vga.reset_n
+		.sdram_conduit_end_addr         (<connected-to-sdram_conduit_end_addr>),         //   sdram_conduit_end.addr
+		.sdram_conduit_end_ba           (<connected-to-sdram_conduit_end_ba>),           //                    .ba
+		.sdram_conduit_end_cas_n        (<connected-to-sdram_conduit_end_cas_n>),        //                    .cas_n
+		.sdram_conduit_end_cke          (<connected-to-sdram_conduit_end_cke>),          //                    .cke
+		.sdram_conduit_end_cs_n         (<connected-to-sdram_conduit_end_cs_n>),         //                    .cs_n
+		.sdram_conduit_end_dq           (<connected-to-sdram_conduit_end_dq>),           //                    .dq
+		.sdram_conduit_end_dqm          (<connected-to-sdram_conduit_end_dqm>),          //                    .dqm
+		.sdram_conduit_end_ras_n        (<connected-to-sdram_conduit_end_ras_n>),        //                    .ras_n
+		.sdram_conduit_end_we_n         (<connected-to-sdram_conduit_end_we_n>),         //                    .we_n
+		.clk_sound_clk                  (<connected-to-clk_sound_clk>),                  //           clk_sound.clk
+		.reset_sound_reset_n            (<connected-to-reset_sound_reset_n>),            //         reset_sound.reset_n
+		.pio_input_export               (<connected-to-pio_input_export>),               //           pio_input.export
+		.reset_only_ao486_reset         (<connected-to-reset_only_ao486_reset>),         //    reset_only_ao486.reset
+		.pio_output_export              (<connected-to-pio_output_export>),              //          pio_output.export
+		.export_sound_sclk              (<connected-to-export_sound_sclk>),              //        export_sound.sclk
+		.export_sound_sdat              (<connected-to-export_sound_sdat>),              //                    .sdat
+		.export_sound_xclk              (<connected-to-export_sound_xclk>),              //                    .xclk
+		.export_sound_bclk              (<connected-to-export_sound_bclk>),              //                    .bclk
+		.export_sound_dat               (<connected-to-export_sound_dat>),               //                    .dat
+		.export_sound_lr                (<connected-to-export_sound_lr>),                //                    .lr
+		.export_vga_clock               (<connected-to-export_vga_clock>),               //          export_vga.clock
+		.export_vga_sync_n              (<connected-to-export_vga_sync_n>),              //                    .sync_n
+		.export_vga_blank_n             (<connected-to-export_vga_blank_n>),             //                    .blank_n
+		.export_vga_horiz_sync          (<connected-to-export_vga_horiz_sync>),          //                    .horiz_sync
+		.export_vga_vert_sync           (<connected-to-export_vga_vert_sync>),           //                    .vert_sync
+		.export_vga_r                   (<connected-to-export_vga_r>),                   //                    .r
+		.export_vga_g                   (<connected-to-export_vga_g>),                   //                    .g
+		.export_vga_b                   (<connected-to-export_vga_b>),                   //                    .b
+		.export_ps2_kbclk               (<connected-to-export_ps2_kbclk>),               //          export_ps2.kbclk
+		.export_ps2_kbdat               (<connected-to-export_ps2_kbdat>),               //                    .kbdat
+		.export_ps2_mouseclk            (<connected-to-export_ps2_mouseclk>),            //                    .mouseclk
+		.export_ps2_mousedat            (<connected-to-export_ps2_mousedat>),            //                    .mousedat
+		.export_ps2_out_port_a20_enable (<connected-to-export_ps2_out_port_a20_enable>), // export_ps2_out_port.a20_enable
+		.export_ps2_out_port_reset_n    (<connected-to-export_ps2_out_port_reset_n>),    //                    .reset_n
+		.sd_dat_export                  (<connected-to-sd_dat_export>),                  //              sd_dat.export
+		.sd_cmd_export                  (<connected-to-sd_cmd_export>),                  //              sd_cmd.export
+		.sd_clk_export                  (<connected-to-sd_clk_export>)                   //              sd_clk.export
+	);
+
