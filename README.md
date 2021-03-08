@@ -6,6 +6,11 @@ Together with the 486 core, the ao486 project also contains a SoC capable of
 booting the Linux kernel version 3.13 and Microsoft Windows 95.
 
 ### Current status
+- 8 March 2021 - Forked from original source, Implemented VGA timing fix in LGPL BIOS, pre-compiled bitstream and NiosII/e Firmware for easy 
+installation, Upped base clock to 60mHz (Still working out timing issues), Began groundwork for OPL3 Port from 
+the Mister to the original ao486 SoC, corrected minor timing issues which fixed several lockup issues. 
+Introduced entirely new lockup issues: Windows 3.11 and win95 fail to load. EMS and XMS are not functioning correctly.
+Doom is playable at near fullscreen, and completly playable with the screen size at aprox half.
 - 31 March 2014  - initial version 1.0.
 - 19 August 2014 - driver_sd update, ps2 fix.
 
